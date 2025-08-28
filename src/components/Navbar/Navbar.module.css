@@ -1,0 +1,27 @@
+.navlink {
+  color: rgb(0, 101, 241) !important;       /* default text color */
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navlink:hover {
+  color: #000 !important;       /* black text on hover */
+}
+
+.navlink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;                 /* space below text */
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: all 0.3s none;
+}
+
+.navlink:hover::after {
+  width: 100%;   
+  color: #000;               /* underline grows */
+}
+  

@@ -40,3 +40,23 @@ a {
     color-scheme: dark;
   }
 }
+
+/* Make navbar height equal to logo */
+.custom-navbar {
+  min-height: 100px; /* same as logo height */
+}
+
+.custom-navbar .navbar-brand img {
+  max-height: 120px;
+  width: auto;
+}
+.carousel-bg {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* adjust height */
+  overflow: hidden;
+}
+
+.carousel-bg img {
+  object-fit: cover;
+}

@@ -1,0 +1,92 @@
+.container {
+  padding: 2rem;
+  border-radius: 12px;
+  margin-left: 100px;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #0d6efd;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.formGroup label {
+  font-weight: 500;
+  color: #333;
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13,110,253,0.2);
+}
+
+.preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.imageBox {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #0d6efd;
+  border-radius: 6px;
+  background: #f0f8ff;
+  font-size: 0.85rem;
+  color: #0d6efd;
+}
+
+.details {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f9f9f9;
+}
+
+.details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #0d6efd;
+}
+
+.submitBtn {
+  margin-top: 1rem;
+  background: #0d6efd;
+  color: #fff;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background: #0b5ed7;
+}
