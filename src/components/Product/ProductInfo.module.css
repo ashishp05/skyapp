@@ -3,6 +3,7 @@
   padding: 20px;
 }
 
+/* ---------- Left Section ---------- */
 .leftSection {
   text-align: center;
 }
@@ -26,6 +27,7 @@
   display: flex;
   justify-content: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .thumbnail {
@@ -46,6 +48,7 @@
   border: 2px solid #0d6efd;
 }
 
+/* ---------- Right Section ---------- */
 .rightSection {
   padding: 20px;
 }
@@ -72,10 +75,100 @@
 .actions {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .btn {
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 8px;
+}
+
+/* ---------- RESPONSIVENESS ---------- */
+
+/* Mobile (0 - 576px) */
+@media (max-width: 576px) {
+  .productName {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .mainImage {
+    height: 220px;
+  }
+
+  .thumbnail {
+    width: 55px;
+    height: 55px;
+  }
+
+  .rightSection {
+    padding: 10px;
+    text-align: start;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}
+
+/* Tablet (577px - 768px) */
+@media (max-width: 768px) {
+  .productName {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+
+  .mainImage {
+    height: 260px;
+  }
+
+  .thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Small Laptop (769px - 1024px) */
+@media (max-width: 1024px) {
+  .productName {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .price {
+    font-size: 22px;
+  }
+
+  .mainImage {
+    height: 300px;
+  }
+}
+
+/* Large Screens (1200px+) */
+@media (min-width: 1200px) {
+  .productName {
+    font-size: 32px;
+  }
+
+  .price {
+    font-size: 28px;
+  }
 }

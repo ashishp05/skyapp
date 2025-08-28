@@ -38,7 +38,7 @@ export async function GET(req) {
       startDate.setHours(0, 0, 0, 0);
       endDate = new Date(endDate);
       endDate.setHours(23, 59, 59, 999);
-      searchQuery[createdAt] = { $gte: startDate, $lte: endDate };
+      searchQuery["createdAt"] = { $gte: startDate, $lte: endDate };
     } 
     if(tag && (tag != 'all'))
     {

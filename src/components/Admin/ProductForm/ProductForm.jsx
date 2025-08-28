@@ -53,7 +53,7 @@ export default function ProductForm({ initialData, onSubmit }) {
     if (initialData) {
       setFormData(initialData);
     }
-  }, [initialData]);
+  }, []);
 
   // Handle submit
   const handleSubmit = async (e) => {
@@ -70,15 +70,16 @@ export default function ProductForm({ initialData, onSubmit }) {
       for (const file of files) {
         data.append("files", file);
       }
-
       const urlsData = await fetch("/api/upload", { method: "POST", body: data });
       const { urls } = await urlsData.json();
-
+      
+      console.log("DATA" , formData , urls)
       // 2️⃣ Add Product
       const response = await axios.post("/api/product/add", {
         ...formData,
         images: urls,
-      });
+      }); 
+       
 
       toast.dismiss();
       if (response.status === 200 || response.statusText === "OK") {

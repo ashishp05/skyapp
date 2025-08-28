@@ -9,6 +9,7 @@ export async function POST(req)
 
     await connectDB()
     const body = await req.json() 
+    console.log("bodyyyyyy" , body)
     let name = body.name ;
     name = (name + "").trim()
     let description = body.description;
@@ -24,15 +25,15 @@ export async function POST(req)
     let images = body.images || []
  
     const productDetails = {
-        brand : body.brand  ,
-        processor : body.processor  ,
-        RAM : body.RAM ,
-        storage : body.storage,
-        display  : body.display ,
-        graphics : body.graphics ,
-        os : body.os ,
-        connectionTypes : body.connectionTypes,
-        weight : body.weight, 
+        brand : body.productDetails.brand ,
+        processor : body.productDetails.processor  ,
+        RAM : body.productDetails.RAM ,
+        storage : body.productDetails.storage,
+        display  :body.productDetails.display ,
+        graphics : body.productDetails.graphics ,
+        os : body.productDetails.os ,
+        connectionTypes : body.productDetails.connectionTypes,
+        weight :body.productDetails.weight, 
     }
     
     const product = new Product({
@@ -42,7 +43,8 @@ export async function POST(req)
       images : images,
       productDetails : productDetails,
       price : body.price || 0
-    })
+    }) 
+    console.log(product)
 
     await product.save()
     return NextResponse.json({product})

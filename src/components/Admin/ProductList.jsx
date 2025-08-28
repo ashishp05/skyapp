@@ -19,9 +19,8 @@ export default function ProductList() {
     tag: "",
   });
 
-  // Pagination state
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(5); // default 5 items per page
+  const [limit, setLimit] = useState(5);
 
   const router = useRouter();
 
@@ -40,10 +39,8 @@ export default function ProductList() {
       }
     }
     fetchProducts();
-  }, [page, limit]); // ✅ re-fetch on filter/page/limit change
+  }, [page, limit, filter]);
 
-
-  // Total pages calculation
   const totalPages = Math.ceil(total / limit);
 
   if(loading) {
@@ -56,57 +53,64 @@ export default function ProductList() {
       <br/>
 
       {/* Filter component */}
-      <ProductFilter onFilterChange={(newFilters) => setFilters(newFilters)} tags={["All", "Laptop", "Desktop", "Computer", "Tablets", "Apple", "Accessories"]}/>
+      <ProductFilter 
+        onFilterChange={(newFilters) => setFilters(newFilters)} 
+        tags={["All", "Laptop", "Desktop", "Computer", "Tablets", "Apple", "Accessories"]}
+      />
 
       <Row>
         <Col>
           <Card className="shadow-sm">
-            <Card.Body>
-              <Table hover responsive className="align-middle">
-                <thead>
-                  <tr>
-                    <th>Tag</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {products.map((product) => (
-                    <tr key={product._id}>
-                      <td>{product.tag}</td>
-                      <td>{product.name}</td>
-                      <td>{product.description}</td>
-                      <td>{product.price ? product.price : 1000}</td>
-                      <td>
-                        <Button
-                          variant="outline-primary"
-                          size="sm"
-                          className="me-2"
-                          onClick={() => router.push(`/admin/product/view/${product._id}`)}
-                        >
-                          View
-                        </Button>
-                        <Button
-                          variant="outline-success"
-                          size="sm"
-                          onClick={() => router.push(`/admin/product/edit/${product._id}`)}
-                        >
-                          Edit
-                        </Button>
-                      </td>
-                    </tr>
-                  ))}
-                  {products.length === 0 && (
+            <Card.Body className="p-0">
+              {/* ✅ Responsive Table */}
+              <div className={styles.tableWrapper}>
+                <Table hover responsive="sm" className="align-middle mb-0">
+                  <thead>
                     <tr>
-                      <td colSpan="5" className="text-center">
-                        No products found
-                      </td>
+                      <th>Tag</th>
+                      <th>Name</th>
+                      <th>Description</th>
+                      <th>Price</th>
+                      <th className={styles.actionCol}>Action</th>
                     </tr>
-                  )}
-                </tbody>
-              </Table>
+                  </thead>
+                  <tbody>
+                    {products.map((product) => (
+                      <tr key={product._id}>
+                        <td>{product.tag}</td>
+                        <td>{product.name}</td>
+                        <td className={styles.desc}>{product.description}</td>
+                        <td>{product.price ? product.price : 1000}</td>
+                        <td>
+                          <div className={styles.actions}>
+                            <Button
+                              variant="outline-primary"
+                              size="sm"
+                              onClick={() => router.push(`/admin/product/view/${product._id}`)}
+                            >
+                              View
+                            </Button>
+                            <Button
+                              variant="outline-success"
+                              size="sm"
+                              onClick={() => router.push(`/admin/product/edit/${product._id}`)}
+                            >
+                              Edit
+                            </Button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                    {products.length === 0 && (
+                      <tr>
+                        <td colSpan="5" className={styles.empty}>
+                          No products found
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </Table>
+              </div>
             </Card.Body>
           </Card>
         </Col>
@@ -114,14 +118,15 @@ export default function ProductList() {
 
       {/* Pagination + Items per page */}
       <Row className="mt-3">
-        <Col className="d-flex justify-content-between align-items-center">
+        <Col className="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+          
           {/* Items per page dropdown */}
           <Form.Select
             value={limit}
             onChange={(e) => { setPage(1); setLimit(Number(e.target.value)); }}
-            style={{ width: "150px" }}
+            style={{ maxWidth: "160px" }}
           >
-            <option value={7}> 7/ page</option>
+            <option value={7}> 7 / page</option>
             <option value={10}>10 / page</option>
             <option value={20}>20 / page</option>
             <option value={30}>30 / page</option>
@@ -131,7 +136,7 @@ export default function ProductList() {
 
           {/* Pagination */}
           <nav aria-label="Page navigation example">
-            <ul className="pagination mb-0">
+            <ul className="pagination mb-0 flex-wrap">
               <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
                 <button className="page-link" onClick={() => setPage(page - 1)}>Previous</button>
               </li>

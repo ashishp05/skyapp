@@ -37,7 +37,7 @@ const BestLaptops = () => {
       </section>
 
       {/* Products Section */}
-      <section className="mb-1">
+      <section className=" w-100 mx-auto mb-5">
         <Container>
           {products.length > 0 ? (
             <Row className="g-4 w-100 mx-auto ">

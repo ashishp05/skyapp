@@ -1,27 +1,26 @@
 .navlink {
-  color: rgb(0, 101, 241) !important;       /* default text color */
+  color: rgb(0, 101, 241) !important; /* default text color */
   position: relative;
   text-decoration: none;
   transition: color 0.3s ease;
+  padding: 0 4px; /* little spacing for better underline alignment */
 }
 
 .navlink:hover {
-  color: #000 !important;       /* black text on hover */
+  color: #000 !important; /* black text on hover */
 }
 
 .navlink::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -3px;                 /* space below text */
+  bottom: -3px; /* space below text */
   width: 0;
   height: 2px;
   background-color: black;
-  transition: all 0.3s none;
+  transition: width 0.3s ease; /* smooth animation */
 }
 
 .navlink:hover::after {
-  width: 100%;   
-  color: #000;               /* underline grows */
+  width: 100%; /* underline expands on hover */
 }
-  

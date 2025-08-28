@@ -28,7 +28,8 @@ const productSchema = new mongoose.Schema({
             trim : true
         }
     ],
-    productDetails: {
+    productDetails: { 
+        _id:false,
        brand : {
         type :String ,
         trim :true
@@ -65,14 +66,15 @@ const productSchema = new mongoose.Schema({
         type :String ,
         trim :true
        },
-        createdAt : {
-            type :Date ,
-            default : Date.now
-        }
-       
     }
 
-},{timestamps : true})
+},{timestamps : true ,
+    toJSON : {
+        transform : function(doc , ret){
+            delete ret.__v;
+        }
+    }
+})
 
 
 const Product =  mongoose.models.Product || mongoose.model("Product", productSchema);

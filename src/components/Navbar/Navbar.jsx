@@ -10,16 +10,23 @@ import {
 import Image from "next/image";
 import { FaSearch } from "react-icons/fa";
 import logo from "../../../public/logo.png";
-import styles from "./Navbar.module.css"; // Import custom CSS
+import styles from "./Navbar.module.css"; 
 import Link from "next/link";
+import { useState } from "react";
 
 function Navigation() {
+  
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <Navbar
+    expanded={expanded}
+     onToggle={() => setExpanded(!expanded)}
       collapseOnSelect
+      expand="lg"   // 👈 make it responsive (collapses below "lg" screens)
       bg="light"
       variant="light"
-      className="shadow-sm fixed-top px-5"
+      className="shadow-sm fixed-top px-3"
     >
       <Container fluid>
         {/* Logo */}
@@ -32,15 +39,18 @@ function Navigation() {
 
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* Center Links */}
-          <Nav className={`mx-auto gap-4 fs-5 `}>
-            <Link href="/" className={styles.navlink}>Home</Link>
-            <Link href="/product" className={styles.navlink}>Products</Link>
-            <Link href="/about" className={styles.navlink}>About</Link>
-            <Link href="/contact" className={styles.navlink}>Contact</Link>
+          <Nav className={`mx-auto gap-4 fs-5`}>
+            <Link href="/" className={styles.navlink} onClick={() => setExpanded(false)}>Home</Link>
+            <Link href="/product" className={styles.navlink} onClick={() => setExpanded(false)}>Products</Link>
+            <Link href="/about" className={styles.navlink} onClick={() => setExpanded(false)}>About</Link>
+            <Link href="/contact" className={styles.navlink} onClick={() => setExpanded(false)}>Contact</Link>
           </Nav>
 
           {/* Right: Search Bar */}
-          <Form className="d-flex align-items-center gap-2" style={{ maxWidth: "280px" }}>
+          <Form 
+            className="d-flex align-items-center gap-2 mt-3 mt-lg-0" 
+            style={{ maxWidth: "280px" }}
+          >
             <Form.Control
               type="search"
               placeholder="Search item"

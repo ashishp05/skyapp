@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Dropdown } from "react-bootstrap";
 import ProductCard from "@/components/Product/ProductCard"; // adjust import
 
 const ProductListPage = () => {
@@ -19,6 +19,7 @@ const ProductListPage = () => {
       }
 
       const response = await axios.get(url);
+
       setProducts(response.data.records || []);
     } catch (error) {
       console.error("Error fetching products", error);
@@ -46,23 +47,48 @@ const ProductListPage = () => {
       {/* Filter Section */}
       <section className="py-4 bg-light">
         <Container>
-          <Row className="justify-content-center mb-3">
-            {filters.map((filter, index) => (
-              <Col xs="auto" sm={12} md={4} lg="auto" key={index}>
-                <Button
-                  variant={
-                    activeFilter === filter.toLowerCase()
-                      ? "primary"
-                      : "outline-primary"
-                  }
-                  onClick={() => setActiveFilter(filter.toLowerCase())}
-                  className="px-4 py-2 fw-semibold rounded-pill shadow-sm m-2 d-flex align-items-start "
-                >
+               <Row className="justify-content-center mb-3 d-none d-md-flex">
+        {filters.map((filter, index) => (
+          <Col xs="auto" key={index}>
+            <Button
+              variant={
+                activeFilter === filter.toLowerCase()
+                  ? "primary"
+                  : "outline-primary"
+              }
+              onClick={() => setActiveFilter(filter.toLowerCase())}
+              className="px-4 py-2 fw-semibold rounded-pill shadow-sm m-2"
+            >
+              {filter}
+            </Button>
+          </Col>
+        ))}
+      </Row>
+
+      {/* Dropdown on small screens */}
+      <Row className="justify-content-center mb-3 d-flex d-md-none">
+        <Col xs={10} sm={6}>
+          <Dropdown
+            onSelect={(val) => setActiveFilter(val)}
+            className="w-100"
+          >
+            <Dropdown.Toggle variant="outline-primary" className="w-100">
+              {filters.find(
+                (f) => f.toLowerCase() === activeFilter
+              ) || "Select Filter"}
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className="w-100">
+              <Dropdown.Item >Select Filter</Dropdown.Item>
+              {filters.map((filter, idx) => (
+                <Dropdown.Item key={idx} eventKey={filter.toLowerCase()}>
                   {filter}
-                </Button>
-              </Col>
-            ))}
-          </Row>
+                </Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+        </Col>
+      </Row>
         </Container>
       </section>
 

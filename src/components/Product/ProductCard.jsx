@@ -17,7 +17,9 @@ export default function ProductCard({ product}) {
 
       {/* Name */}
       <h5 className={styles.name}>{product.name}</h5>
-      <p className={styles.desc}>{product.description}</p>
+      <p className={styles.desc}> {product.description.length > 90
+    ? product.description.slice(0, 90) + "..." 
+    : product.description}</p>
       {/* Price & Button */}
       <div className={styles.footer}>
         <div>

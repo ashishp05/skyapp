@@ -47,18 +47,22 @@ console.log("product" , product)
 
         {/* Right side: Details */}
         <Col md={6} className={styles.rightSection}>
-          <h2 className={styles.productName}>{product.name}</h2>
+         <h2 className={styles.productName}>{product.name}</h2>
           <p className={styles.description}>{product.description}</p>
           <h4 className={styles.price}>₹{product.price}</h4>
-
-          <div className={styles.actions}>
-            <Button variant="outline-primary" className={styles.btn}>
-              Add to Cart
-            </Button>
-            <Button variant="danger" className={styles.btn}>
-              Buy Now
-            </Button>
-          </div>
+         {product.productDetails && (
+            <div className={styles.specsBlock}>
+              <h5>Specifications</h5>
+              <ul >
+                {Object.entries(product.productDetails).map(([key, value], idx) => (
+                  <li key={idx}>
+                    <strong>{key.charAt(0).toUpperCase() + key.slice(1)}:</strong>{" "}
+                    {value}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </Col>
       </Row>
     </Container>

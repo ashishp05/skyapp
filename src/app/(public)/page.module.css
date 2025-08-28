@@ -7,6 +7,8 @@
   --button-secondary-hover: #f2f2f2;
 
   display: flex;
+  width: 100%;
+  margin: auto;
   flex-direction: column;
   align-items: center;
   justify-items: center;
