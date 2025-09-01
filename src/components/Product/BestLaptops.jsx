@@ -38,9 +38,9 @@ const BestLaptops = () => {
 
       {/* Products Section */}
       <section className=" w-100 mx-auto mb-5">
-        <Container>
+        <div className="">
           {products.length > 0 ? (
-            <Row className="g-4 w-100 mx-auto ">
+            <Row className="g-4">
               {products.map((product, idx) => (
                 <Col xs={12} sm={4} lg={3} key={idx}>
                   <ProductCard product={product} />
@@ -52,7 +52,7 @@ const BestLaptops = () => {
               <h5>No Data Found</h5>
             </Row>
           )}
-        </Container>
+        </div>
       </section>
       <CTAButton text={"More Products"}></CTAButton>
     </>

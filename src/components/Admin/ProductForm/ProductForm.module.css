@@ -90,3 +90,13 @@
 .submitBtn:hover {
   background: #0b5ed7;
 }
+
+.errorInput {
+  border: 1px solid red !important;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}

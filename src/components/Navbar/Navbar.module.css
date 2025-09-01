@@ -24,3 +24,10 @@
 .navlink:hover::after {
   width: 100%; /* underline expands on hover */
 }
+
+@media (max-width: 991px) {
+  .navlink {
+    font-size: 16px;
+    padding: 10px 0;
+  }
+}

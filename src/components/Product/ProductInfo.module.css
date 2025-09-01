@@ -172,3 +172,48 @@
     font-size: 28px;
   }
 }
+
+/* Main Image */
+.mainImageWrapper {
+  width: 100%;
+  height: 400px; /* fixed height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f9f9f9;
+  margin-bottom: 1rem;
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps proportions, fills area */
+}
+
+/* Thumbnails Row */
+.thumbnailRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 80px;   /* fixed thumbnail size */
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.activeThumb {
+  border: 2px solid #ff9800; /* highlight active thumbnail */
+}
+  

@@ -1,41 +1,112 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+"use client";
 
-const Footer = () => {
+import { Container, Row, Col, Button } from "react-bootstrap";
+import Image from "next/image";
+import Link from "next/link";
+import logo from "../../../public/logo.png"; // Replace with your SkyTech logo
+
+function Footer() {
   return (
-    <footer className="bg-dark text-light py-4 mt-5">
+    <footer className="bg-light text-dark pt-5 pb-3 mt-5 ">
       <Container>
-        <Row className="align-items-center">
-          {/* Brand / Logo */}
-          <Col md={4} className="text-center text-md-start mb-3 mb-md-0">
-            <h4 className="fw-bold">MyWebsite</h4>
-            <p className="small mb-0">© {new Date().getFullYear()} All Rights Reserved</p>
+        <Row className="gy-4">
+          {/* Logo + About */}
+          <Col md={4}>
+            <div className="d-flex align-items-center mb-3">
+              <Image src={logo} alt="SkyTech Logo" width={45} height={45} />
+              <h4 className="ms-2 fw-bold text-primary">SkyTech</h4>
+            </div>
+            <p className="text-secondary" style={{ fontSize: "14px", lineHeight: "1.7", color: "#ccc" }}>
+              At <strong>SkyTech</strong>, our vision is to deliver the best{" "}
+              <span className="text-primary text-decoration-none">laptops</span>,{" "}
+              <span className="text-primary text-decoration-none">desktops</span>, and{" "}
+              <span className="text-primary text-decoration-none">tech gadgets</span> at unbeatable
+              prices. We bring cutting-edge technology closer to you.
+            </p>
           </Col>
 
-          {/* Navigation Links */}
-          <Col md={4} className="text-center mb-3 mb-md-0">
-            <ul className="list-unstyled d-flex justify-content-center gap-3 mb-0">
-              <li><a href="/" className="text-light text-decoration-none">Home</a></li>
-              <li><a href="/about" className="text-light text-decoration-none">About</a></li>
-              <li><a href="/products" className="text-light text-decoration-none">Products</a></li>
-              <li><a href="/contact" className="text-light text-decoration-none">Contact</a></li>
+          {/* Company Links */}
+          <Col md={2}>
+            <h6 className="fw-bold mb-3 text-uppercase">Company</h6>
+            <ul className="list-unstyled">
+              <li>
+                <Link href="/" className="footer-link text-decoration-none">Home</Link>
+              </li>
+              <li>
+                <Link href="/about" className="footer-link text-decoration-none">About Us</Link>
+              </li>
+              <li>
+                <Link href="/delivery" className="footer-link text-decoration-none">Delivery</Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="footer-link text-decoration-none">Privacy Policy</Link>
+              </li>
             </ul>
           </Col>
 
-          {/* Social Icons */}
-          <Col md={4} className="text-center text-md-end">
-            <div className="d-flex justify-content-center justify-content-md-end gap-3">
-              <a href="#" className="text-light"><FaFacebook size={20} /></a>
-              <a href="#" className="text-light"><FaTwitter size={20} /></a>
-              <a href="#" className="text-light"><FaInstagram size={20} /></a>
-              <a href="#" className="text-light"><FaLinkedin size={20} /></a>
-            </div>
+          {/* Our Products */}
+          <Col md={3}>
+            <h6 className="fw-bold mb-3 text-uppercase">Our Products</h6>
+            <ul className="list-unstyled">
+              <li>
+                <Link href="/products/laptops" className="footer-link text-decoration-none">Laptops</Link>
+              </li>
+              <li>
+                <Link href="/products/desktops" className="footer-link text-decoration-none">Desktops</Link>
+              </li>
+              <li>
+                <Link href="/products/gadgets" className="footer-link text-decoration-none">Gadgets</Link>
+              </li>
+              <li>
+                <Link href="/products/accessories" className="footer-link text-decoration-none">Accessories</Link>
+              </li>
+            </ul>
+          </Col>
+
+          {/* Get in Touch */}
+          <Col md={3}>
+            <h6 className="fw-bold mb-3 text-uppercase">Get in Touch</h6>
+            <p className="mb-1">📞 +91 98765 43210</p>
+            <p className="mb-1">📞 +91 91234 56789</p>
+            <p className="mb-2">✉️ support@skytech.com</p>
+            <Button variant="primary" size="sm" className="rounded-pill px-3">
+              <Link href="/contact" className="text-white text-decoration-none">
+                Contact Us
+              </Link>
+            </Button>
+          </Col>
+        </Row>
+
+        {/* Divider */}
+        <hr className="mt-4 mb-3 border-secondary" />
+
+        {/* Copyright */}
+        <Row>
+          <Col className="text-center">
+            <small style={{ color: "#aaa" }}>
+              © {new Date().getFullYear()} SkyTech. All Rights Reserved.
+            </small>
           </Col>
         </Row>
       </Container>
+
+      {/* Extra Styling */}
+      <style jsx>{`
+        .footer-link {
+          display: inline-block;
+          color: #bbb;
+          text-decoration: none;
+          font-size: 14px;
+          margin-bottom: 8px;
+          transition: color 0.3s, transform 0.2s;
+        }
+        .footer-link:hover {
+          color: #0d6efd; /* Bootstrap Primary */
+          transform: translateX(3px);
+        }
+      `}</style>
     </footer>
   );
-};
+}
 
 export default Footer;

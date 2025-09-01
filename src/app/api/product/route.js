@@ -21,7 +21,7 @@ export async function GET(req) {
 
     let searchTerm = searchParams.get("searchTerm") || "";
     let searchQuery = {};
-
+ console.log("search" , searchTerm)
     if (searchTerm) {
       searchQuery["$or"] = [
         {

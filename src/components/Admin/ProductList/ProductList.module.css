@@ -1,0 +1,140 @@
+.container {
+  padding: 1.5rem;
+  background: #f9fbfd;
+  border-radius: 12px;
+}
+
+/* Heading */
+.heading {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #0d6efd;
+  margin-bottom: 1rem;
+}
+
+/* 🔍 Filter container */
+.filterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid #e3e6ea;
+  border-radius: 10px;
+}
+
+/* Search input */
+.searchInput {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.searchInput:focus {
+  border-color: #0d6efd;
+}
+
+/* Date range */
+.dateRange {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dateInput {
+  padding: 8px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+.toText {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Dropdown */
+.dropdown {
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: #fff;
+}
+
+/* 📊 Table */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table th,
+.table td {
+  padding: 12px 14px;
+  font-size: 0.95rem;
+}
+
+.table thead th {
+  background-color: #f1f3f5;
+  font-weight: 600;
+}
+
+.table tbody tr:nth-child(even) {
+  background: #f5f8ff;
+}
+
+.table tbody tr:hover {
+  background: #eaf2ff;
+  transition: 0.3s;
+}
+
+/* ✂️ Description ellipsis */
+.desc {
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 🛠️ Action buttons */
+.actionCol {
+  width: 180px;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap; /* ✅ makes buttons wrap on small screens */
+}
+
+/* Empty state */
+.empty {
+  text-align: center;
+  padding: 1.5rem;
+  color: #999;
+  font-size: 1rem;
+}
+
+/* 📱 Responsive adjustments */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1.3rem;
+  }
+  .desc {
+    max-width: 180px;
+  }
+  .actionCol {
+    width: 140px;
+  }
+  .filterContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .searchInput,
+  .dateInput,
+  .dropdown {
+    width: 100%;
+  }
+}

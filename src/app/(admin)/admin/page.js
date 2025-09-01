@@ -5,25 +5,26 @@ import { FaSearch } from "react-icons/fa";
 
 import "./Dashboard.module.css"; // Module CSS for styling
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 const Dashboard = () => {
   const navigate = useRouter();
-  const [products, setProducts] = useState([]);
+  const [counts, setCounts] = useState({});
   const [search, setSearch] = useState("");
 
   // Example API call
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch(`/api/products?search=${search}`);
-        const data = await res.json();
-        setProducts(data);
+        const res = await axios.get("/api/admin/dashboard");
+        console.log("res" , res.data)
+        setCounts(res.data)
       } catch (error) {
         console.error(error);
       }
     }
     fetchProducts();
-  }, [search]);
+  }, []);
 
   return (
     <Container fluid className="dashboard-container">
@@ -45,7 +46,7 @@ const Dashboard = () => {
           <Card className="shadow-sm">
             <Card.Body>
               <h6>Total Products</h6>
-              <h4>{products.length}</h4>
+              <h4>{counts.totalProducts}</h4>
             </Card.Body>
           </Card>
         </Col>
@@ -53,7 +54,7 @@ const Dashboard = () => {
           <Card className="shadow-sm">
             <Card.Body>
               <h6>Laptops</h6>
-              <h4>{products.filter((p) => p.tag === "laptop").length}</h4>
+              <h4>{counts.totalLaptops}</h4>
             </Card.Body>
           </Card>
         </Col>
@@ -61,15 +62,47 @@ const Dashboard = () => {
           <Card className="shadow-sm">
             <Card.Body>
               <h6>Desktops</h6>
-              <h4>{products.filter((p) => p.tag === "desktop").length}</h4>
+              <h4>{counts.totalDesktop}</h4>
             </Card.Body>
           </Card>
         </Col>
         <Col md={3}>
           <Card className="shadow-sm">
             <Card.Body>
+              <h6>Computors</h6>
+              <h4>{counts.other}</h4>
+            </Card.Body>
+          </Card>
+        </Col>
+         <Col md={3}>
+          <Card className="shadow-sm mt-3">
+            <Card.Body>
+              <h6>Tablets</h6>
+              <h4>{counts.other}</h4>
+            </Card.Body>
+          </Card>
+        </Col>
+         <Col md={3}>
+          <Card className="shadow-sm mt-3">
+            <Card.Body>
+              <h6>iphone</h6>
+              <h4>{counts.other}</h4>
+            </Card.Body>
+          </Card>
+        </Col>
+         <Col md={3}>
+          <Card className="shadow-sm mt-3">
+            <Card.Body>
+              <h6>Accesories</h6>
+              <h4>{counts.other}</h4>
+            </Card.Body>
+          </Card>
+        </Col>
+         <Col md={3}>
+          <Card className="shadow-sm mt-3">
+            <Card.Body>
               <h6>Other</h6>
-              <h4>{products.filter((p) => p.tag !== "laptop" && p.tag !== "desktop").length}</h4>
+              <h4>{counts.other}</h4>
             </Card.Body>
           </Card>
         </Col>

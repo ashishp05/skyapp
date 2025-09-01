@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./CTAButton.module.css";
 import Link from "next/link";
 
-const CTAButton = ({ text, onClick }) => {
+const CTAButton = ({ text, link="/product" }) => {
   return (
-    <Link href={"/product"} className={styles.ctaButton} >
+    <Link href={link} className={styles.ctaButton} >
       {text}
     </Link>
   );

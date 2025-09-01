@@ -50,7 +50,7 @@ export async function PATCH(req , {params}) {
         await connectDB()
 
         const body = await req.json();
-      console.log(body)
+
         const {productId} =await params
       
         if(!productId)
@@ -72,15 +72,15 @@ export async function PATCH(req , {params}) {
         description : body.description,
         tag : body.tag ,
         productDetails :{
-            brand : body.brand,
-            processor : body.processor,
-            RAM : body.RAM,
-            weight : body.weight,
-            storage :body.storage,
-            display : body.display,
-            graphics : body.graphics,
-            os : body.os,
-            connectionTypes : body.connectionTypes,
+            brand : body.productDetails.brand,
+            processor : body.productDetails.processor,
+            RAM : body.productDetails.RAM,
+            weight : body.productDetails.weight,
+            storage :body.productDetails.storage,
+            display : body.productDetails.display,
+            graphics : body.productDetails.graphics,
+            os : body.productDetails.os,
+            connectionTypes : body.productDetails.connectionTypes,
         }
       } },
       { new: true, runValidators: true }
