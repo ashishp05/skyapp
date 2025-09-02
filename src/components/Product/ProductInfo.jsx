@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import styles from "./ProductInfo.module.css";
 import axios from "axios";
+import Spinner from "../Common/Spinner";
 
 const ProductInfo =  ({productId}) => {
   // sample API call
@@ -20,7 +21,7 @@ console.log("product" , product)
     fetchProduct();
   }, []);
 
-  if (!product) return <p className="text-center mt-5">Loading...</p>;
+  if (!product) return <Spinner/>;
 
   return (
     <Container className={`my-5 ${styles.productInfo}`}>

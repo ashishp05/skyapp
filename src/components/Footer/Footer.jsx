@@ -4,6 +4,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../public/logo.png"; // Replace with your SkyTech logo
+import { GrSkype } from "react-icons/gr";
 
 function Footer() {
   return (
@@ -13,8 +14,8 @@ function Footer() {
           {/* Logo + About */}
           <Col md={4}>
             <div className="d-flex align-items-center mb-3">
-              <Image src={logo} alt="SkyTech Logo" width={45} height={45} />
-              <h4 className="ms-2 fw-bold text-primary">SkyTech</h4>
+              
+              <h4 className="ms-2 fw-bold text-primary">  <GrSkype/>kyTech</h4>
             </div>
             <p className="text-secondary" style={{ fontSize: "14px", lineHeight: "1.7", color: "#ccc" }}>
               At <strong>SkyTech</strong>, our vision is to deliver the best{" "}
@@ -66,9 +67,9 @@ function Footer() {
           {/* Get in Touch */}
           <Col md={3}>
             <h6 className="fw-bold mb-3 text-uppercase">Get in Touch</h6>
-            <p className="mb-1">📞 +91 98765 43210</p>
-            <p className="mb-1">📞 +91 91234 56789</p>
-            <p className="mb-2">✉️ support@skytech.com</p>
+            <p className="mb-1">📞 +91 98799 11503</p>
+            <p className="mb-1">📞 +91 98799 11505</p>
+            <p className="mb-2">✉️ narendrasadariya1011@gmail.com</p>
             <Button variant="primary" size="sm" className="rounded-pill px-3">
               <Link href="/contact" className="text-white text-decoration-none">
                 Contact Us
@@ -84,7 +85,7 @@ function Footer() {
         <Row>
           <Col className="text-center">
             <small style={{ color: "#aaa" }}>
-              © {new Date().getFullYear()} SkyTech. All Rights Reserved.
+              © {2018} SkyTech. All Rights Reserved.
             </small>
           </Col>
         </Row>

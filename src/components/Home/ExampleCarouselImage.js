@@ -1,20 +1,24 @@
 import Image from "next/image";
-import ima from "../../../public/logo.png"
+
 export default function ExampleCarouselImage({ text }) {
   return (
-    <div src={ima}
+    <div
       style={{
-        height: "470px",
-        backgroundColor: "#aaa",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "white",
-        fontSize: "1.5rem"
+        height: "330px",
+        width: "100%",
+        position: "relative",
+        borderRadius: "0.75rem",
+        overflow: "hidden", // border radius ke andar image crop ho jaye
       }}
     >
-
-        <Image src={text} alt="image" width={1100} height={470} />
+      <Image
+        src={text}
+        alt="image"
+        fill
+        style={{
+          objectFit: "cover", // image ko container ke andar achhi tarah set karega
+        }}
+      />
     </div>
   );
 }

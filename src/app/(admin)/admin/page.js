@@ -17,7 +17,6 @@ const Dashboard = () => {
     async function fetchProducts() {
       try {
         const res = await axios.get("/api/admin/dashboard");
-        console.log("res" , res.data)
         setCounts(res.data)
       } catch (error) {
         console.error(error);

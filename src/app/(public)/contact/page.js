@@ -66,8 +66,8 @@ const ContactPage = () => {
                     <div>
                       <h5 className="fw-bold text-primary">Address</h5>
                       <p className="mb-0 text-muted">
-                        Skytech Store, Main Market Road,  
-                        Surat, Gujarat, India - 395001
+                       189, Jayant Park, Uganda Hall Road,
+                        Memnagar,<br/>Ahmedabad, Gujarat 380052
                       </p>
                     </div>
                   </Card.Body>
@@ -82,9 +82,10 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h5 className="fw-bold text-success">Contact</h5>
-                      <p className="mb-1 text-muted">+91 98765 43210</p>
+                      <p className="mb-1 text-muted"> 📞 +91 98799 11503</p>
+                      <p className="mb-1 text-muted"> 📞 +91 98799 11505</p>
                       <p className="mb-0 text-muted">
-                        <FaEnvelope className="me-2" /> support@skytech.com
+                        <FaEnvelope className="me-2" /> narendrasadariya1011@gmail.com
                       </p>
                     </div>
                   </Card.Body>
@@ -114,12 +115,13 @@ const ContactPage = () => {
           <Col>
             <Card className="border-0 shadow-sm rounded-4 overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.236027694779!2d72.83106161534456!3d21.170240985921704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f1cbe3b76e5%3A0xdda9142f2c8c2d2!2sSurat%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1692890087625!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.233073156589!2d72.52932447408959!3d23.048744815748173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f6b1c2b77d%3A0xe67a018e7c58a132!2s189%2C%20Jayant%20Park%2C%20Uganda%20Hall%20Rd%2C%20Memnagar%2C%20Ahmedabad%2C%20Gujarat%20380052!5e0!3m2!1sen!2sin!4v1692899999999!5m2!1sen!2sin"
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </Card>
           </Col>

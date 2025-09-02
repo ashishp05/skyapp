@@ -14,24 +14,29 @@ import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { useState } from "react";
 import { FaCartShopping } from "react-icons/fa6";
-
+import { useCart } from "@/context/CartContext";
+import { GrSkype } from "react-icons/gr";
 function Navigation() {
   const [expanded, setExpanded] = useState(false);
+
+  const { cart  } = useCart();
+  const totalItems = cart?.reduce((acc, item) => acc + (item.qty || 0), 0) || 0;
+
 
   return (
     <Navbar
       expanded={expanded}
       onToggle={() => setExpanded(!expanded)}
       collapseOnSelect
-      expand="lg"
+      expand="md"
       bg="white"
       variant="light"
-      className="shadow-sm fixed-top py-2 px-3"
+      className="shadow-sm fixed-top py-1 px-5"
     >
-      <Container fluid>
+      <Container className="container-lg text-center">
         {/* Logo */}
-        <Navbar.Brand href="/" className="d-flex align-items-center">
-          <Image src={logo} alt="nav-logo" width={130} height={65} />
+        <Navbar.Brand href="/" className="d-flex align-items-center px-5 py-2 m-2 text-primary">
+        <GrSkype/>kyTech
         </Navbar.Brand>
 
         {/* Toggle Button */}
@@ -75,7 +80,7 @@ function Navigation() {
             {/* Cart Icon */}
             <Link href="/cart" 
               className={`${styles.navlink} position-relative  fs-5`} >
-              <FaCartShopping />
+              <FaCartShopping />{ cart.length > 0 ? <sup className="bg-danger rounded-circle px-1 m-1 text-light">{totalItems}</sup> : null}
               {/* Badge (example if needed later) */}
               {/* <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span> */}
             </Link>

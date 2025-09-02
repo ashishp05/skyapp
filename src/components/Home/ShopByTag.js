@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { FaLaptop, FaDesktop, FaTabletAlt, FaApple, FaKeyboard } from "react-icons/fa";
 import { MdComputer } from "react-icons/md";
+import { motion } from "framer-motion";
 
 const ShopByTag = () => {
   const cards = [
@@ -15,30 +16,44 @@ const ShopByTag = () => {
   ];
 
   return (
-    <section className="py-5 bg-light w-100">
+    <section className=" w-100">
       <Container>
-        <h2 className="text-center mb-5 fw-bold pb-3 border-bottom border-primary">
+        <motion.h2
+          className="text-center  mb-5 fw-bold display-5 pb-3"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           Shop By Category
-        </h2>
-        <Row className="justify-content-center g-4">
+        </motion.h2>
+        <Row className="justify-content-center g-2">
           {cards.map((card, index) => (
-            <Col xs={6} md={4} lg={2} key={index} className="d-flex justify-content-center">
-              <Link
-                href={`/product`}
-                className="text-decoration-none text-dark"
-              >
-                <Card
-                  className="d-flex flex-column align-items-center justify-content-center rounded-circle shadow-sm border"
-                  style={{
-                    width: "150px",
-                    height: "150px",
-                    cursor: "pointer",
-                    transition: "all 0.3s ease",
-                  }}
+            <Col xs={6} sm={6} md={4} lg={2} key={index} className="d-flex justify-content-around">
+              <Link href={`/product`} className="text-decoration-none text-dark">
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 3 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 10 }}
                 >
-                  <div className="mb-2 text-primary">{card.icon}</div>
-                  <Card.Text className="fw-semibold">{card.label}</Card.Text>
-                </Card>
+                  <Card
+                    className="d-flex flex-column align-items-center justify-content-center rounded-circle shadow-sm "
+                    style={{
+                      width: "125px",
+                      height: "125px",
+                      cursor: "pointer",
+                      background: "white",
+                    }}
+                  >
+                    <motion.div
+                      className="mb-2 text-primary"
+                      whileHover={{ rotate: 40 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {card.icon}
+                    </motion.div>
+                    <Card.Text className="fw-bold text-center">{card.label}</Card.Text>
+                  </Card>
+                </motion.div>
               </Link>
             </Col>
           ))}

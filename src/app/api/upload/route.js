@@ -6,7 +6,6 @@ export async function POST(req)
     try {
         const formData = await req.formData()
         const files = formData.getAll("files");
-         console.log(formData)
         const imageUrls = [];
 
         for (const file of files) {
@@ -25,7 +24,6 @@ export async function POST(req)
 
             
         }
-        console.log("urls" , imageUrls)
         return NextResponse.json({urls : imageUrls})
         
     } catch (error) {

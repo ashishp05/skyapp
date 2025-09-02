@@ -37,13 +37,12 @@ const AboutSection = () => {
               ensure top-notch performance at unbeatable prices.
             </p>
             <ul>
-              <li>💻 Quality Products – tested & reliable</li>
-              <li>⚡ Affordable Pricing – best value for money</li>
-              <li>🔧 Expert Support – guiding you to the right choice</li>
-              <li>🌍 Global Imports – access to the best from Dubai & US</li>
+              <li> Quality Products – tested & reliable</li>
+              <li> Affordable Pricing – best value for money</li>
+              <li> Expert Support – guiding you to the right choice</li>
+              <li> Global Imports – access to the best from Dubai & US</li>
             </ul>
-            
-           <CTAButton text={"Explore Products"}/>
+          
           </Col>
         </Row>
       </Container>
